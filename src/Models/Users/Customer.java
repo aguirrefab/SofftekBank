@@ -10,7 +10,7 @@ import java.util.List;
  * {@code Customer} is a subclass<br>
  * <p>
  * This class belong to the group User of system.<br>
- * This class extends of {@User} *
+ * This class extends of {@User}
  * <p>
  * @author AguirreFab
  * @version 1.0

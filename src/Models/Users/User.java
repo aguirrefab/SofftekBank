@@ -7,7 +7,7 @@ import java.util.Date;
  * {@code User} is a abstract class<br>
  * <p>
  * This class is the superclass for the group Users. <br>
- * Create instance is not possible for this class.. *
+ * Create instance is not possible from this class.. *
  * <p>
  *
  * @author AguirreFab

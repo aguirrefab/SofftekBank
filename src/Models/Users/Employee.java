@@ -1,7 +1,5 @@
 package Models.Users;
 
-import Models.Users.User;
-
 import java.util.Date;
 
 /**
