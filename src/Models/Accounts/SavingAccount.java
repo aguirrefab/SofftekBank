@@ -1,6 +1,16 @@
 package Models.Accounts;
 
-import Models.Accounts.Account;
+/**
+ * <h2>Saving Account</h2>
+ * {@code Account} is a subclass<br>
+ * <p>
+ * This class belong to the group Account of system.<br>
+ * This class extends of {@Account}
+ * <p>
+ * @author AguirreFab
+ * @version 1.0
+ *
+ */
 
 public abstract class SavingAccount extends Account {
     private String currency;
