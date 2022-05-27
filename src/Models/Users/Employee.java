@@ -1,4 +1,6 @@
-package Models;
+package Models.Users;
+
+import Models.Users.User;
 
 import java.util.Date;
 
@@ -14,7 +16,7 @@ import java.util.Date;
  *
  */
 
-public class Employee extends User{
+public class Employee extends User {
     private Integer personalFile;
 
 

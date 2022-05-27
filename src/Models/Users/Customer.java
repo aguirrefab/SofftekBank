@@ -1,4 +1,7 @@
-package Models;
+package Models.Users;
+import Models.Accounts.Account;
+import Models.Users.User;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +17,7 @@ import java.util.List;
  *
  */
 
-public class Customer extends User{
+public class Customer extends User {
 
     private Integer id;
     private List<Account> accounts;

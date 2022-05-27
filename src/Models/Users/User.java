@@ -1,13 +1,13 @@
-package Models;
+package Models.Users;
 
 import java.util.Date;
 
 /**
- * <h2>Usuario</h2>
- * {@code Usuario} es una clase abstracta <br>
+ * <h2>User</h2>
+ * {@code User} is a abstract class<br>
  * <p>
- * Es una superclase correspondiente a la familia de usuarios del sistema. <br>
- * No es posible crear instancias de esta clase. *
+ * This class is the superclass for the group Users. <br>
+ * Create instance is not possible for this class.. *
  * <p>
  *
  * @author AguirreFab
