@@ -17,8 +17,7 @@ import java.util.Date;
 public abstract class User {
     protected String cuil;
     protected String name;
-    protected String surname;
-    protected String address;
+    protected String surname;    protected String address;
     protected String phoneNumber;
     protected String email;
     protected Date registrationDate;
