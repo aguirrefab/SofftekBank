@@ -19,29 +19,23 @@ import java.util.List;
 
 public class Customer extends User {
 
-    private Integer id;
-    private List<Account> accounts;
 
-    public Customer(String cuil, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId, Integer id, List<Account> accounts) {
-        super(cuil, name, surname, address, phoneNumber, email, registrationDate, branchId);
-        this.id = id;
-        this.accounts = accounts;
+    public Customer(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId, Integer id, List<Account> accounts) {
+        super(dni, name, surname, address, phoneNumber, email);
+
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "cuil='" + dni + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", registrationDate=" + registrationDate +
+                '}';
     }
 }
 

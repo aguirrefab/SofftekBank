@@ -1,5 +1,7 @@
 package Models.Accounts;
 
+import Services.IAccountService;
+
 /**
  * <h2>Saving Account</h2>
  * {@code Account} is a subclass<br>
@@ -17,14 +19,8 @@ public abstract class SavingAccount extends Account {
 
     public SavingAccount(Integer idAccount, Double balance, String currency) {
         super(idAccount, balance);
-        this.currency = currency;
-    }
-    @Override
-    public void deposit(double quantity) {
-    }
-    @Override
-    public void extract(double quantity) {
-    }
+        this.currency = currency;    }
+
 
     public String getCurrency() {
         return currency;
@@ -33,4 +29,6 @@ public abstract class SavingAccount extends Account {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
+
+
 }

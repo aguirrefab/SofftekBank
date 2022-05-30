@@ -14,12 +14,12 @@ import java.util.Date;
  *
  */
 
-public class Employee extends User {
+public class EmployeeBank extends User {
     private Integer personalFile;
 
 
-    public Employee(String cuil, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId, Integer personalFile) {
-        super(cuil, name, surname, address, phoneNumber, email, registrationDate, branchId);
+    public EmployeeBank(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId, Integer personalFile) {
+        super(dni, name, surname, address, phoneNumber, email);
         this.personalFile = personalFile;
     }
 
@@ -29,6 +29,21 @@ public class Employee extends User {
 
     public void setPersonalFile(Integer personalFile) {
         this.personalFile = personalFile;
+    }
+
+
+    @Override
+    public String toString() {
+        return "EmployeeBank{" +
+                "Personal File=" + personalFile +
+                ", cuil='" + dni + '\'' +
+                ", Name='" + name + '\'' +
+                ", Surname='" + surname + '\'' +
+                ", Address='" + address + '\'' +
+                ", PhoneNumber='" + phoneNumber + '\'' +
+                ", Email='" + email + '\'' +
+                ", RegistrationDate=" + registrationDate +
+                '}';
     }
 }
 

@@ -20,8 +20,8 @@ public class Bank {
     private String entityName;
     private Integer entityCode;
     private String country;
-
     private List<Account> accounts;
+
 
     public Bank(String entityName, Integer entityCode, String country) {
         this.entityName = entityName;

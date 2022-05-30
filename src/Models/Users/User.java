@@ -15,31 +15,29 @@ import java.util.Date;
  */
 
 public abstract class User {
-    protected String cuil;
+    protected String dni;
     protected String name;
     protected String surname;    protected String address;
     protected String phoneNumber;
     protected String email;
     protected Date registrationDate;
-    protected Integer branchId;
 
-    public User(String cuil, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId) {
-        this.cuil = cuil;
+
+    public User(String dni, String name, String surname, String address, String phoneNumber, String email) {
+        this.dni = dni;
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.registrationDate = registrationDate;
-        this.branchId = branchId;
     }
 
     public String getCuil() {
-        return cuil;
+        return dni;
     }
 
     public void setCuil(String cuil) {
-        this.cuil = cuil;
+        this.dni = cuil;
     }
 
     public String getName() {
@@ -90,12 +88,5 @@ public abstract class User {
         this.registrationDate = registrationDate;
     }
 
-    public Integer getBranchId() {
-        return branchId;
-    }
-
-    public void setBranchId(Integer branchId) {
-        this.branchId = branchId;
-    }
 }
 

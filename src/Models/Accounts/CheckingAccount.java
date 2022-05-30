@@ -1,6 +1,7 @@
 package Models.Accounts;
 
 import Models.Accounts.Account;
+import Services.IAccountService;
 
 /**
  * <h2>Checking Account</h2>
@@ -22,10 +23,12 @@ public class CheckingAccount extends Account {
         this.currency = currency;
     }
 
-    @Override
-    public void deposit(double quantity) {
+    public String getCurrency() {
+        return currency;
     }
-    @Override
-    public void extract(double quantity) {
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
-}
+
+  }
