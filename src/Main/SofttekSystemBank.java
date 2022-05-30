@@ -1,5 +1,2 @@
-package Main;
-
-public class SofftekSystemBank {
-
+package Main;public class SofttekSystemBank {
 }
