@@ -1,4 +1,4 @@
-package Models.Users;
+package models.users;
 
 public class AdministratorSystem extends User {
     private final String COMPANY;

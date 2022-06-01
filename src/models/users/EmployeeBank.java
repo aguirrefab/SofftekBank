@@ -1,4 +1,4 @@
-package Models.Users;
+package models.users;
 
 import java.util.Date;
 

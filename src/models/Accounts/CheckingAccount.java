@@ -1,7 +1,4 @@
-package Models.Accounts;
-
-import Models.Accounts.Account;
-import Services.IAccountService;
+package models.Accounts;
 
 /**
  * <h2>Checking Account</h2>

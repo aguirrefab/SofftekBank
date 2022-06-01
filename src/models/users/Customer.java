@@ -1,6 +1,5 @@
-package Models.Users;
-import Models.Accounts.Account;
-import Models.Users.User;
+package models.users;
+import models.Accounts.Account;
 
 import java.util.Date;
 import java.util.List;

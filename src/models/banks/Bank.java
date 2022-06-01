@@ -1,6 +1,6 @@
-package Models.Banks;
+package models.banks;
 
-import Models.Accounts.Account;
+import models.Accounts.Account;
 import java.util.ArrayList;
 import java.util.List;
 
