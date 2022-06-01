@@ -1,8 +1,4 @@
-package Main;
-
-import Constants.TypeOfAccount;
-import Models.Accounts.SavingAccount;
-import Models.Users.AdministratorSystem;
+package main;
 
 public class SofttekSystemBank {
 
