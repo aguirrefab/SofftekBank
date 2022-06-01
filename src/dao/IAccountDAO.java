@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import Models.Accounts.Account;
+import models.Accounts.Account;
 
 import java.util.List;
 

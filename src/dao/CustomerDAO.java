@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import Models.Users.Customer;
+import models.users.Customer;
 
 import java.util.ArrayList;
 import java.util.List;

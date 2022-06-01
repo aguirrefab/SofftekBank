@@ -1,6 +1,6 @@
-package DAO;
+package dao;
 
-import Models.Banks.Bank;
+import models.banks.Bank;
 
 public class BankDAO implements IBankDAO{
     @Override
