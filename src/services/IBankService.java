@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 /**
  * <h2>Bank Service</h2>

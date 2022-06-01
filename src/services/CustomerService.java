@@ -1,10 +1,6 @@
-package Services;
+package services;
 
-import Models.Accounts.Account;
-import Models.Users.Customer;
-
-import java.util.ArrayList;
-import java.util.List;
+import models.users.Customer;
 
 public class CustomerService implements ICustomerService{
 

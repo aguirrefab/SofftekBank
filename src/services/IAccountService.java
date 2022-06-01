@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 public interface IAccountService {
     public abstract void deposit(double quantity);

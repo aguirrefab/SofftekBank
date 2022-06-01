@@ -1,6 +1,6 @@
-package Services;
+package services;
 
-import Models.Users.Customer;
+import models.users.Customer;
 
 public interface ICustomerService {
 
