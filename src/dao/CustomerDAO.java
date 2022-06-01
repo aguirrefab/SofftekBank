@@ -24,7 +24,17 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void getCustomers(String entityName) {
+    public Customer findCustomerById(String dni) {
+        return null;
+    }
 
+    @Override
+    public List<Customer> listCustomersByBankEntityCode(Integer entityCode) {
+        return null;
+    }
+
+    @Override
+    public List<Customer> listCustomersBySubsidiaryId(Integer entityId) {
+        return null;
     }
 }
