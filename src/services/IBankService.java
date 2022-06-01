@@ -1,5 +1,7 @@
 package services;
 
+import models.banks.Bank;
+
 /**
  * <h2>Bank Service</h2>
  * {@code IBankService} is an interface<br>
@@ -12,6 +14,11 @@ package services;
  */
 
 public interface IBankService {
-    
+
+    void createEntityBank(Bank bank);
+    void deleteEntityBank(Integer entityCode);
+
+    void findBankByEntityCode(Integer entityCode);
+
 
 }

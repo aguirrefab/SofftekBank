@@ -2,8 +2,18 @@ package services;
 
 import models.users.Customer;
 
+import java.util.List;
+
 public interface ICustomerService {
 
-    public void addCustomer(Customer customer);
+    void addCustomer(Customer customer);
+
+    void deleteCustomer(String dni);
+
+    Customer findCustomerById(String dni);
+
+    List<Customer> listCustomersByBankEntityCode(Integer entityCode);
+
+    List<Customer> listCustomersBySubsidiaryId(Integer entityId);
 
 }
