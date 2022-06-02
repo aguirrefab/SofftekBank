@@ -5,18 +5,34 @@ import models.Accounts.Account;
 import java.util.List;
 
 public class AccountDAO  implements IAccountDAO{
+
     @Override
-    public void addAccount(Account account, String dni) {
+    public void add(Account customer) {
 
     }
 
     @Override
-    public List<Account> getAccountsOfCustomer(String dni) {
-        return null;
+    public void delete(Account dni) {
+
     }
 
     @Override
-    public List<Account> getAccountsByBank(Integer entityCode) {
+    public void modify(Account customer) {
+
+    }
+
+    @Override
+    public Account findById(String dni) {
+        return Customer;
+    }
+
+    @Override
+    public List<Account> listByBankEntityCode(Integer entityCode) {
+        return List<Account>;
+    }
+
+    @Override
+    public List<Account> listBySubsidiaryId(Integer entityId) {
         return null;
     }
 }

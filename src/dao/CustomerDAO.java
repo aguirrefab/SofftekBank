@@ -13,28 +13,34 @@ public class CustomerDAO implements ICustomerDAO {
         this.Customers = new ArrayList<>();
     }
 
+
     @Override
-    public void addCustomer(Customer customer) {
+    public void add(Customer customer) {
 
     }
 
     @Override
-    public void deleteCustomer(String dni) {
+    public void delete(Customer dni) {
 
     }
 
     @Override
-    public Customer findCustomerById(String dni) {
+    public void modify(Customer customer) {
+
+    }
+
+    @Override
+    public Customer findById(String dni) {
         return null;
     }
 
     @Override
-    public List<Customer> listCustomersByBankEntityCode(Integer entityCode) {
+    public List<Customer> listByBankEntityCode(Integer entityCode) {
         return null;
     }
 
     @Override
-    public List<Customer> listCustomersBySubsidiaryId(Integer entityId) {
+    public List<Customer> listBySubsidiaryId(Integer entityId) {
         return null;
     }
 }

@@ -2,13 +2,9 @@ package dao;
 
 import models.Accounts.Account;
 
-import java.util.List;
 
-public interface IAccountDAO {
+public interface IAccountDAO extends DAO<Account, Integer>{
 
-    void addAccount(Account account, String dni);
 
-    List<Account> getAccountsOfCustomer(String dni);
 
-    List<Account> getAccountsByBank(Integer entityCode);
 }
