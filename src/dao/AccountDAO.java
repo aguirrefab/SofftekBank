@@ -1,13 +1,23 @@
 package dao;
 
-import models.Accounts.Account;
+import models.accounts.Account;
+import models.database.DBConnection;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class AccountDAO  implements IAccountDAO{
 
+    Connection connectionDB = DBConnection.getConnection();
+
+    private List<Account> accounts;
+
+    public AccountDAO(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
-    public void add(Account customer) {
+    public void add(Account account) {
 
     }
 
@@ -19,6 +29,11 @@ public class AccountDAO  implements IAccountDAO{
     @Override
     public void modify(Account customer) {
 
+    }
+
+    @Override
+    public Account findById(Integer String) {
+        return null;
     }
 
     @Override

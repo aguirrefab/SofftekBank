@@ -1,10 +1,9 @@
 package dao;
 
-import models.Accounts.Account;
+import models.accounts.Account;
 
 
 public interface IAccountDAO extends DAO<Account, Integer>{
-
 
 
 }

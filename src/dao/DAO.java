@@ -9,11 +9,9 @@ public interface DAO<T, K>  {
 
     void modify(T customer);
 
-    T findById(String dni);
+    T findById(K String);
 
-    List<T> listByBankEntityCode(K entityCode);
-
-    List<T> listBySubsidiaryId(K entityId);
-
+    List<T> listByBankEntityCode(Integer K);
+    List<T> listBySubsidiaryId(Integer k);
 
 }
