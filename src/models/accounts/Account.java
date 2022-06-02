@@ -1,4 +1,4 @@
-package models.Accounts;
+package models.accounts;
 
 
 /**

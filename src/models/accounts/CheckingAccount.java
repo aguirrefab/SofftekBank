@@ -1,4 +1,4 @@
-package models.Accounts;
+package models.accounts;
 
 /**
  * <h2>Checking Account</h2>

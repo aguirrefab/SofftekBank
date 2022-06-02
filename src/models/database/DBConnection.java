@@ -1,4 +1,4 @@
-package dao;
+package models.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,11 @@ import java.util.ResourceBundle;
 
 
 public class DBConnection {
-    private static Connection connectionDb = null;
+    private static Connection connectionDB = null;
 
-    public static Connection getConnectionDb(){
+    public static Connection getConnection(){
         try{
-            if (connectionDb == null){
+            if (connectionDB == null){
 
                 ResourceBundle resourceProp = ResourceBundle.getBundle("jdbc");
                 String driver=resourceProp.getString("driver");
@@ -18,9 +18,9 @@ public class DBConnection {
                 String pwd=resourceProp.getString("pwd");
                 String usr=resourceProp.getString("usr");
                 Class.forName(driver);
-                connectionDb = DriverManager.getConnection(url,usr,pwd);
+                connectionDB = DriverManager.getConnection(url,usr,pwd);
             }
-            return connectionDb;
+            return connectionDB;
         }
         catch(Exception ex)
         {
