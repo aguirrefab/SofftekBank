@@ -1,24 +1,27 @@
 package services;
 
+import dao.BankDAO;
+import dao.IBankDAO;
 import models.banks.Bank;
 
 public class BankService implements IBankService{
 
+    private IBankDAO bankDAO;
 
 
-
-    @Override
-    public void createEntityBank(Bank bank) {
-
+    public BankService(){
+        this.bankDAO  = new BankDAO();
     }
 
     @Override
-    public void deleteEntityBank(Integer entityCode) {
+    public void addBank(Bank bank) {
+        bankDAO.add(bank);
 
     }
-
     @Override
-    public void findBankByEntityCode(Integer entityCode) {
+    public Bank findBankById(Integer entityCode) {
+        return bankDAO.findBankByEntityCode(entityCode);
 
     }
 }
+

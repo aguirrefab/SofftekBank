@@ -17,27 +17,31 @@ import java.util.Date;
 public abstract class User {
     protected String dni;
     protected String name;
-    protected String surname;    protected String address;
+    protected String surname;
+    protected String address;
     protected String phoneNumber;
     protected String email;
     protected Date registrationDate;
 
 
-    public User(String dni, String name, String surname, String address, String phoneNumber, String email) {
+    public User(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate) {
         this.dni = dni;
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.registrationDate = registrationDate;
     }
 
-    public String getCuil() {
+    public User(){}
+
+    public String getDni() {
         return dni;
     }
 
-    public void setCuil(String cuil) {
-        this.dni = cuil;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getName() {

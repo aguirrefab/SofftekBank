@@ -12,21 +12,13 @@ package models.accounts;
  *
  */
 
-public abstract class SavingAccount extends Account {
-    private String currency;
+public class SavingAccount extends Account {
 
-    public SavingAccount(Integer idAccount, Double balance, String currency) {
-        super(idAccount, balance);
-        this.currency = currency;    }
-
-
-    public String getCurrency() {
-        return currency;
+    public SavingAccount(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, String customerDni) {
+        super(idAccount, balance, CBU, tipeOfCurrency, tipeOfAccount, customerDni);
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
+    public SavingAccount(){}
 
 
 }

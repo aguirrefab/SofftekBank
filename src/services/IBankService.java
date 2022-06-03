@@ -15,10 +15,8 @@ import models.banks.Bank;
 
 public interface IBankService {
 
-    void createEntityBank(Bank bank);
-    void deleteEntityBank(Integer entityCode);
-
-    void findBankByEntityCode(Integer entityCode);
+    void addBank(Bank bank);
+    Bank findBankById(Integer entityCode);
 
 
 }

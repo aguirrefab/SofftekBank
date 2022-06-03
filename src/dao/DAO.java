@@ -1,17 +1,11 @@
 package dao;
 
+import java.sql.Connection;
 import java.util.List;
 
-public interface DAO<T, K>  {
-    void add(T customer);
+public interface DAO<T>  {
+    void add(T a);
 
-    void delete(T dni);
-
-    void modify(T customer);
-
-    T findById(K String);
-
-    List<T> listByBankEntityCode(Integer K);
-    List<T> listBySubsidiaryId(Integer k);
+    void delete(T a);
 
 }

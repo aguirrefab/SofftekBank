@@ -1,5 +1,6 @@
 package models.banks;
 
+import dao.BankDAO;
 import models.accounts.Account;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +24,15 @@ public class Bank {
     private List<Account> accounts;
 
 
+
     public Bank(String entityName, Integer entityCode, String country) {
         this.entityName = entityName;
         this.entityCode = entityCode;
         this.country = country;
         this.accounts = new ArrayList<>();
     }
+
+    public Bank(){}
 
     public String getEntityName() {
         return entityName;

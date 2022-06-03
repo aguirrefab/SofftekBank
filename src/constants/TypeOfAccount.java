@@ -13,7 +13,19 @@ public enum TypeOfAccount {
         this.descriptionAccount = descriptionAccount;
     }
 
+    public Integer getAccountCode() {
+        return accountCode;
+    }
 
+    public void setAccountCode(Integer accountCode) {
+        this.accountCode = accountCode;
+    }
 
+    public String getDescriptionAccount() {
+        return descriptionAccount;
+    }
 
+    public void setDescriptionAccount(String descriptionAccount) {
+        this.descriptionAccount = descriptionAccount;
+    }
 }

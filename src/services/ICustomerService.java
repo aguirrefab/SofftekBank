@@ -8,12 +8,12 @@ public interface ICustomerService {
 
     void addCustomer(Customer customer);
 
-    void deleteCustomer(String dni);
+    void deleteCustomer(Customer customer);
 
-    Customer findCustomerById(String dni);
+    Customer findCustomerByDni(String dni);
 
-    List<Customer> listCustomersByBankEntityCode(Integer entityCode);
-
-    List<Customer> listCustomersBySubsidiaryId(Integer entityId);
+//    List<Customer> listCustomersByBankEntityCode(Integer entityCode);
+//
+//    List<Customer> listCustomersBySubsidiaryId(Integer entityId);
 
 }

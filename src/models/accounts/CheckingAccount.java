@@ -13,19 +13,9 @@ package models.accounts;
  */
 
 public class CheckingAccount extends Account {
-    private String currency;
 
-    public CheckingAccount(Integer idAccount, Double balance, String currency) {
-        super(idAccount, balance);
-        this.currency = currency;
+
+    public CheckingAccount(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, String customerDni) {
+        super(idAccount, balance, CBU, tipeOfCurrency, tipeOfAccount, customerDni);
     }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-  }
+}

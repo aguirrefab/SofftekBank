@@ -15,27 +15,27 @@ import java.util.Date;
  */
 
 public class EmployeeBank extends User {
-    private Integer personalFile;
+    private Integer personalFileId;
 
 
-    public EmployeeBank(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer branchId, Integer personalFile) {
-        super(dni, name, surname, address, phoneNumber, email);
-        this.personalFile = personalFile;
+    public EmployeeBank(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer personalFileId) {
+        super(dni, name, surname, address, phoneNumber, email, registrationDate);
+        this.personalFileId = personalFileId;
     }
 
     public Integer getPersonalFile() {
-        return personalFile;
+        return personalFileId;
     }
 
-    public void setPersonalFile(Integer personalFile) {
-        this.personalFile = personalFile;
+    public void setPersonalFileId(Integer personalFileId) {
+        this.personalFileId = personalFileId;
     }
 
 
     @Override
     public String toString() {
         return "EmployeeBank{" +
-                "Personal File=" + personalFile +
+                "Personal File=" + personalFileId +
                 ", cuil='" + dni + '\'' +
                 ", Name='" + name + '\'' +
                 ", Surname='" + surname + '\'' +

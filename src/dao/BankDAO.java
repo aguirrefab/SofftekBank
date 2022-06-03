@@ -1,78 +1,136 @@
 package dao;
 
+import models.accounts.Account;
+import models.accounts.SavingAccount;
 import models.banks.Bank;
-import models.database.DBConnection;
+import models.database.IDBConnection;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankDAO implements IBankDAO{
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
-    private final List<Bank> banks;
+public class BankDAO extends IDBConnection implements IBankDAO{
 
-    public BankDAO(){
+    private List<Bank> banks;
+
+    private static BankDAO instance;
+
+    public BankDAO() {
         this.banks = new ArrayList<>();
     }
 
+    // Apply Singleton Pattern
+    static public BankDAO getInstance() {
+        if (instance == null) {
+            instance = new BankDAO();
+        }
+        return instance;
+    }
 
     @Override
     public void add(Bank bank) {
-
-        try{
-            Connection connectionDB = DBConnection.getConnection();
-
-            PreparedStatement preparedStatement = connectionDB.prepareStatement("INSERT INTO banco (entityName) VALUES (?)",PreparedStatement.RETURN_GENERATED_KEYS);
-
-            preparedStatement.setString(bank.setEntityName());
+        try {
+            connectToDB();
+            String query = "INSERT INTO bancos(nombre) VALUES(?)";
+            PreparedStatement preparedStatement = connectionDB.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, bank.getEntityName());
 
             preparedStatement.executeUpdate();
 
             ResultSet rs = preparedStatement.getGeneratedKeys();
             while (rs.next()){
-                banco.setId(rs.getInt(1));
+                bank.setEntityCode(rs.getInt(1));
             }
 
-            connection.close();
-        }catch(ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            System.out.println(e);
+            connectionDB.close();
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void delete(Bank bank) {
+
+
+        try {
+            connectToDB();
+            String query = "DELETE FROM bancos WHERE id = ?";
+            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
+            preparedStatement.setInt(1, bank.getEntityCode());
+
+            preparedStatement.executeUpdate();
+            connectionDB.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
-    public void delete(Bank dni) {
+    public void updateBankEntity(Integer entityCode){
+
+        Bank bank;
+
+        try {
+            connectToDB();
+            String query = "UPDATE bancos SET nombre = ? WHERE id = ?";
+            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
+            preparedStatement.setInt(1, entityCode);
+
+            preparedStatement.executeUpdate();
+            connectionDB.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    @Override
-    public void modify(Bank customer) {
+    public Bank findBankByEntityCode(Integer entityCode){
+
+        Bank bank;
+
+        try {
+            connectToDB();
+            String query = "SELECT * FROM bancos WHERE id_banco LIKE ?";
+            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
+            preparedStatement.setLong(1, entityCode);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()){
+                bank = new Bank();
+                bank.setEntityCode(rs.getInt(1));
+                bank.setEntityName(rs.getString(2));
+
+                return bank;
+            }
+
+            connectionDB.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return  null;
 
     }
 
-    @Override
-    public Bank findById(Integer String) {
-        return null;
-    }
 
-    @Override
-    public Bank findById(String dni) {
-        return null;
-    }
 
-    @Override
-    public List<Bank> listByBankEntityCode(Integer entityCode) {
-        return null;
-    }
-
-    @Override
-    public List<Bank> listBySubsidiaryId(Integer entityId) {
-        return null;
-    }
 }
+
+
+
+
+
+
+
+
+
