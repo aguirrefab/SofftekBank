@@ -3,7 +3,7 @@ package dao;
 import models.users.Customer;
 
 
-public interface ICustomerDAO extends DAO<Customer>{
+public interface ICustomerDAO {
 
     Customer findCustomersByDni(Integer DNI);
 
