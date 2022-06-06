@@ -2,12 +2,10 @@ package dao;
 
 import models.users.Customer;
 
-import java.util.List;
-
 
 public interface ICustomerDAO extends DAO<Customer>{
 
-    List<Customer> findCustomersByDni(String dni);
+    Customer findCustomersByDni(Integer DNI);
 
     //List<Customer> listCustomersByBankEntityCode(Integer entityCode);
 

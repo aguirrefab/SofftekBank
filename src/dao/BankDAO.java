@@ -1,27 +1,19 @@
 package dao;
 
-import models.accounts.Account;
-import models.accounts.SavingAccount;
 import models.banks.Bank;
-import models.database.IDBConnection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
+public class BankDAO implements IBankDAO{
 
-public class BankDAO extends IDBConnection implements IBankDAO{
+    // Instance variable for the objetc BankDAO
 
-    private List<Bank> banks;
 
     private static BankDAO instance;
 
-    public BankDAO() {
-        this.banks = new ArrayList<>();
-    }
+    public BankDAO() {}
 
     // Apply Singleton Pattern
     static public BankDAO getInstance() {
@@ -31,106 +23,84 @@ public class BankDAO extends IDBConnection implements IBankDAO{
         return instance;
     }
 
-    @Override
     public void add(Bank bank) {
         try {
-            connectToDB();
-            String query = "INSERT INTO bancos(nombre) VALUES(?)";
-            PreparedStatement preparedStatement = connectionDB.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, bank.getEntityName());
+            String query = "INSERT INTO banks(entity_name, country) VALUES(?, ?, ?)";
+            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
 
-            preparedStatement.executeUpdate();
+            prStmt.setString(2, bank.getEntityName());
+            prStmt.setString(3, bank.getCountry());
 
-            ResultSet rs = preparedStatement.getGeneratedKeys();
-            while (rs.next()){
-                bank.setEntityCode(rs.getInt(1));
-            }
+            prStmt.executeUpdate(query);
 
-            connectionDB.close();
+            prStmt.close();
+            DataConnection.getConection().close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    @Override
     public void delete(Bank bank) {
-
-
         try {
-            connectToDB();
-            String query = "DELETE FROM bancos WHERE id = ?";
-            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
-            preparedStatement.setInt(1, bank.getEntityCode());
+            String query = "DELETE FROM banks WHERE entity_code = ?";
+            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
 
-            preparedStatement.executeUpdate();
-            connectionDB.close();
+            prStmt.setLong(1, bank.getEntityCode());
+
+            prStmt.executeUpdate(query);
+
+            prStmt.close();
+            DataConnection.getConection().close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
-    public void updateBankEntity(Integer entityCode){
-
-        Bank bank;
-
+    public void updateBankEntity(Bank bank){
         try {
-            connectToDB();
-            String query = "UPDATE bancos SET nombre = ? WHERE id = ?";
-            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
-            preparedStatement.setInt(1, entityCode);
+            String query = "UPDATE banks SET entity_name ?, country = ? WHERE entity_code = ?";
+            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
 
-            preparedStatement.executeUpdate();
-            connectionDB.close();
+            prStmt.setString(1, bank.getEntityName());
+            prStmt.setString(2, bank.getCountry());
+
+            prStmt.executeUpdate(query);
+
+            prStmt.close();
+            DataConnection.getConection().close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    public Bank findBankByEntityCode(Integer entityCode){
-
+    public Bank findBankByEntityCode(Long entityCode){
         Bank bank;
-
         try {
-            connectToDB();
-            String query = "SELECT * FROM bancos WHERE id_banco LIKE ?";
-            PreparedStatement preparedStatement = connectionDB.prepareStatement(query);
-            preparedStatement.setLong(1, entityCode);
-            ResultSet rs = preparedStatement.executeQuery();
+            String query = "SELECT * FROM banks WHERE entity_code = ?";
+            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
+
+            prStmt.setLong(1, entityCode);
+            ResultSet rs = prStmt.executeQuery(query);
 
             if (rs.next()){
                 bank = new Bank();
-                bank.setEntityCode(rs.getInt(1));
+                bank.setEntityCode(rs.getLong(1));
                 bank.setEntityName(rs.getString(2));
-
+                bank.setEntityName(rs.getString(2));
+                bank.setCountry(rs.getString(3));
                 return bank;
             }
-
-            connectionDB.close();
+            prStmt.close();
+            rs.close();
+            DataConnection.getConection().close();
 
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
-        return  null;
-
+        return null;
     }
-
-
-
 }
-
-
-
-
-
-
-
-
-

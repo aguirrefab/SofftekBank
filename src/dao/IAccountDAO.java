@@ -1,24 +1,19 @@
 package dao;
 
 import models.accounts.Account;
-import models.database.IDBConnection;
 
-import java.sql.Connection;
 import java.util.List;
 
 
-public interface IAccountDAO extends DAO<Account> {
+public interface IAccountDAO {
 
     Account findAccountByCBU(Long CBU);
 
-    Account findAccountByDNI(String DNI);
+    List<Account> findAccountByDNI(Integer DNI);
 
-
-    Integer updateAccountBalance(Account account);
-
-
+    void updateSavingAccountBalance(Account account);
+    void updateCheckingAccountBalance(Account account);
     List<Account> listAccountByBankEntityCode(Integer entityCode);
-    List<Account> listAccountBySubsidiaryId(Integer idSubsidiary);
-
+    List<Account> listAccountByBranchId(Integer idSubsidiary);
 
 }

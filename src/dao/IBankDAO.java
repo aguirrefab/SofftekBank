@@ -1,13 +1,12 @@
 package dao;
 
-import models.accounts.Account;
+
 import models.banks.Bank;
 
-public interface IBankDAO extends DAO<Bank>{
+public interface IBankDAO{
 
-    Bank findBankByEntityCode(Integer entityCode);
-
-    void updateBankEntity(Integer entityCode);
+    Bank findBankByEntityCode(Long entityCode);
+    void updateBankEntity(Bank bank);
 
 
 }
