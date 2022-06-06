@@ -14,7 +14,7 @@ public abstract class DataConnection {
     private static final String PASSW = "AGUIpata21";
 
 
-    public static Connection getConection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
 
         if (connectionDB == null){
             try {

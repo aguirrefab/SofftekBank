@@ -8,24 +8,23 @@ import java.sql.SQLException;
 
 public class BranchDAO implements IBranchDAO {
 
-
     private static BranchDAO instance;
 
     private BranchDAO() {}
 
     // Apply Singleton Pattern
-    static public BranchDAO getInstance() {
+    public static BranchDAO getInstance() {
         if (instance == null) {
             instance = new BranchDAO();
         }
         return instance;
     }
 
-
-    public void add(Branch branch) {
+    public void addBranch(Branch branch) {
         try {
             String query = "INSERT INTO branches(city, address) VALUES(?, ?, ?)";
-            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
+            PreparedStatement prStmt = DataConnection.getConnection().prepareStatement(query);
+            DataConnection.getConnection().setAutoCommit(false);
 
             prStmt.setString(2, branch.getCity());
             prStmt.setString(3, branch.getAddress());
@@ -33,26 +32,47 @@ public class BranchDAO implements IBranchDAO {
             prStmt.executeUpdate(query);
 
             prStmt.close();
-            DataConnection.getConection().close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            try {
+                DataConnection.getConnection().rollback();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                DataConnection.getConnection().close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
-    public void delete(Branch branch) {
+    public void deleteBranch(Branch branch) {
         try {
             String query = "DELETE FROM branches WHERE entity_id = ?";
-            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
+            PreparedStatement prStmt = DataConnection.getConnection().prepareStatement(query);
+            DataConnection.getConnection().setAutoCommit(false);
 
             prStmt.setLong(1, branch.getEntityId());
 
             prStmt.executeUpdate(query);
 
             prStmt.close();
-            DataConnection.getConection().close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            try {
+                DataConnection.getConnection().rollback();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                DataConnection.getConnection().close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -61,7 +81,8 @@ public class BranchDAO implements IBranchDAO {
         Branch branch;
         try {
             String query = "SELECT * FROM branches WHERE entity_id = ?";
-            PreparedStatement prStmt = DataConnection.getConection().prepareStatement(query);
+            PreparedStatement prStmt = DataConnection.getConnection().prepareStatement(query);
+            DataConnection.getConnection().setAutoCommit(false);
 
             prStmt.setLong(1, entityId);
             ResultSet rs = prStmt.executeQuery(query);
@@ -75,10 +96,20 @@ public class BranchDAO implements IBranchDAO {
             }
             prStmt.close();
             rs.close();
-            DataConnection.getConection().close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            try {
+                DataConnection.getConnection().rollback();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                DataConnection.getConnection().close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
         return null;
     }
