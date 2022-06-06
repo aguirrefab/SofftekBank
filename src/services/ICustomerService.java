@@ -10,10 +10,11 @@ public interface ICustomerService {
 
     void deleteCustomer(Customer customer);
 
-    Customer findCustomerByDni(String dni);
+    void updateCustomer(Customer customer);
 
-//    List<Customer> listCustomersByBankEntityCode(Integer entityCode);
-//
-//    List<Customer> listCustomersBySubsidiaryId(Integer entityId);
+    Customer findCustomersByDni(Integer DNI);
 
+    List<Customer> listCustomersByBankEntityCode(Integer entityCode);
+
+    List<Customer> listCustomersByBranchId(Integer entityId);
 }

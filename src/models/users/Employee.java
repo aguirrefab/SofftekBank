@@ -18,14 +18,16 @@ public class Employee extends User {
     private Integer personalFileId;
     private Double salary;
     private String jobRole;
+    private Integer branchId;
 
     public Employee(){};
 
-    public Employee(Integer dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer personalFileId, Double salary, String jobRole) {
+    public Employee(Integer dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer personalFileId, Double salary, String jobRole, Integer branchId) {
         super(dni, name, surname, address, phoneNumber, email, registrationDate);
         this.personalFileId = personalFileId;
         this.salary = salary;
         this.jobRole = jobRole;
+        this.branchId = branchId;
     }
 
     public Integer getPersonalFileId() {
@@ -50,6 +52,15 @@ public class Employee extends User {
 
     public void setJobRole(String jobRole) {
         this.jobRole = jobRole;
+    }
+
+
+    public Integer getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(Integer branchId) {
+        this.branchId = branchId;
     }
 }
 

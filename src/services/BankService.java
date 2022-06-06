@@ -13,15 +13,25 @@ public class BankService implements IBankService{
         this.bankDAO  = new BankDAO();
     }
 
-    @Override
-    public void addBank(Bank bank) {
-        bankDAO.add(bank);
 
+    @Override
+    public void addBankEntity(Bank bank) {
+        bankDAO.addBankEntity(bank);
     }
-    @Override
-    public Bank findBankById(Integer entityCode) {
-        return bankDAO.findBankByEntityCode(entityCode);
 
+    @Override
+    public void deleteBankEntity(Bank bank) {
+        bankDAO.deleteBankEntity(bank);
+    }
+
+    @Override
+    public void updateBankEntity(Bank bank) {
+        bankDAO.updateBankEntity(bank);
+    }
+
+    @Override
+    public Bank findBankByEntityCode(Long entityCode) {
+        return bankDAO.findBankByEntityCode(entityCode);
     }
 }
 

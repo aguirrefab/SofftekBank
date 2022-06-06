@@ -16,29 +16,30 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void addCustomer(Customer customer) {
-        customerDAO.add(customer);
-
+        customerDAO.addCustomer(customer);
     }
 
     @Override
     public void deleteCustomer(Customer customer) {
-        customerDAO.delete(customer);
-
+        customerDAO.deleteCustomer(customer);
     }
 
     @Override
-    public Customer findCustomerByDni(String dni) {
-        return (Customer) customerDAO.findCustomersByDni(dni);
+    public void updateCustomer(Customer customer) {
+        customerDAO.updateCustomer(customer);
+    }
 
+    @Override
+    public Customer findCustomersByDni(Integer DNI) {
+        return customerDAO.findCustomersByDni(DNI);
+    }
+
+    @Override
+    public List<Customer> listCustomersByBankEntityCode(Integer entityCode) {
+        return customerDAO.listCustomersByBankEntityCode(entityCode);
+    }
+    @Override
+    public List<Customer> listCustomersByBranchId(Integer entityId) {
+        return customerDAO.listCustomersByBranchId(entityId);
     }
 }
-
-//    @Override
-//    public List<Customer> listCustomersByBankEntityCode(Integer entityCode) {
-//        return customerDAO.
-//
-//    @Override
-//    public List<Customer> listCustomersBySubsidiaryId(Integer entityId) {
-//        return customerDAO.
-//    }
-//}

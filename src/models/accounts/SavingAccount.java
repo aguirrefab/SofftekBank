@@ -1,5 +1,7 @@
 package models.accounts;
 
+import models.banks.Bank;
+import models.banks.Branch;
 import models.users.Customer;
 
 /**
@@ -16,8 +18,8 @@ import models.users.Customer;
 
 public class SavingAccount extends Account {
 
-    public SavingAccount(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, Customer customerDni) {
-        super(idAccount, balance, CBU, tipeOfCurrency, tipeOfAccount, customerDni);
+    public SavingAccount(Integer idAccount, Double balance, Long CBU, String typeOfCurrency, String typeOfAccount, Customer customer, Bank bank, Branch branch) {
+        super(idAccount, balance, CBU, typeOfCurrency, typeOfAccount, customer, bank, branch);
     }
 
     public SavingAccount(){}
