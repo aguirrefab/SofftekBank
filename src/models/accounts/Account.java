@@ -1,10 +1,8 @@
 package models.accounts;
 
-import constants.TypeOfAccount;
-import constants.TypeOfCurrency;
-import dao.AccountDAO;
-
-import java.util.ArrayList;
+import models.banks.Bank;
+import models.banks.Branch;
+import models.users.Customer;
 
 /**
  * <h2>Account</h2>
@@ -22,26 +20,29 @@ public abstract class Account {
     protected Double balance;
     protected Long CBU;
 
-    protected String tipeOfCurrency;
+    protected String typeOfCurrency;
 
-    protected String tipeOfAccount;
+    protected String typeOfAccount;
 
-    protected String customerDni;
+    protected Customer customer;
+
+    protected Bank bank;
+
+    protected Branch branch;
 
 
-
-
-    public Account(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, String customerDni) {
+    public Account(Integer idAccount, Double balance, Long CBU, String typeOfCurrency, String typeOfAccount, Customer customer, Bank bank, Branch branch) {
         this.idAccount = idAccount;
         this.balance = balance;
         this.CBU = CBU;
-        this.tipeOfCurrency = tipeOfCurrency;
-        this.tipeOfAccount = tipeOfAccount;
-        this.customerDni = customerDni;    }
+        this.typeOfCurrency = typeOfCurrency;
+        this.typeOfAccount = typeOfAccount;
+        this.customer = customer;
+        this.bank = bank;
+        this.branch = branch;
+    }
 
     public Account(){}
-
-
 
     public Integer getIdAccount() {
         return idAccount;
@@ -63,31 +64,61 @@ public abstract class Account {
         return CBU;
     }
 
-    public void setCBU(long CBU) {
+    public void setCBU(Long CBU) {
         this.CBU = CBU;
     }
 
-    public String getTipeOfCurrency() {
-        return tipeOfCurrency;
+    public String getTypeOfCurrency() {
+        return typeOfCurrency;
     }
 
-    public void setTipeOfCurrency(String tipeOfCurrency) {
-        this.tipeOfCurrency = tipeOfCurrency;
+    public void setTypeOfCurrency(String typeOfCurrency) {
+        this.typeOfCurrency = typeOfCurrency;
     }
 
-    public String getTipeOfAccount() {
-        return tipeOfAccount;
+    public String getTypeOfAccount() {
+        return typeOfAccount;
     }
 
-    public void setTipeOfAccount(String tipeOfAccount) {
-        this.tipeOfAccount = tipeOfAccount;
+    public void setTypeOfAccount(String typeOfAccount) {
+        this.typeOfAccount = typeOfAccount;
     }
 
-    public String getCustomerDni() {
-        return customerDni;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerDni(String customerDni) {
-        this.customerDni = customerDni;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "idAccount=" + idAccount +
+                ", balance=" + balance +
+                ", CBU=" + CBU +
+                ", typeOfCurrency='" + typeOfCurrency + '\'' +
+                ", typeOfAccount='" + typeOfAccount + '\'' +
+                ", customer=" + customer +
+                ", bank=" + bank +
+                ", branch=" + branch +
+                '}';
     }
 }

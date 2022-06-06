@@ -15,7 +15,7 @@ import java.util.Date;
  */
 
 public abstract class User {
-    protected String dni;
+    protected Integer DNI;
     protected String name;
     protected String surname;
     protected String address;
@@ -23,9 +23,8 @@ public abstract class User {
     protected String email;
     protected Date registrationDate;
 
-
-    public User(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate) {
-        this.dni = dni;
+    public User(Integer DNI, String name, String surname, String address, String phoneNumber, String email, Date registrationDate) {
+        this.DNI = DNI;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -34,14 +33,15 @@ public abstract class User {
         this.registrationDate = registrationDate;
     }
 
+
     public User(){}
 
-    public String getDni() {
-        return dni;
+    public Integer getDni() {
+        return DNI;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDni(Integer DNI) {
+        this.DNI = DNI;
     }
 
     public String getName() {
@@ -92,5 +92,17 @@ public abstract class User {
         this.registrationDate = registrationDate;
     }
 
-}
+    @Override
+    public String toString() {
+        return "User{" +
+                "dni='" + DNI + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", registrationDate=" + registrationDate +
+                '}';
+    }
 
+}

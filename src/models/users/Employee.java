@@ -14,16 +14,21 @@ import java.util.Date;
  *
  */
 
-public class EmployeeBank extends User {
+public class Employee extends User {
     private Integer personalFileId;
+    private Double salary;
+    private String jobRole;
 
+    public Employee(){};
 
-    public EmployeeBank(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer personalFileId) {
+    public Employee(Integer dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer personalFileId, Double salary, String jobRole) {
         super(dni, name, surname, address, phoneNumber, email, registrationDate);
         this.personalFileId = personalFileId;
+        this.salary = salary;
+        this.jobRole = jobRole;
     }
 
-    public Integer getPersonalFile() {
+    public Integer getPersonalFileId() {
         return personalFileId;
     }
 
@@ -31,19 +36,20 @@ public class EmployeeBank extends User {
         this.personalFileId = personalFileId;
     }
 
+    public Double getSalary() {
+        return salary;
+    }
 
-    @Override
-    public String toString() {
-        return "EmployeeBank{" +
-                "Personal File=" + personalFileId +
-                ", cuil='" + dni + '\'' +
-                ", Name='" + name + '\'' +
-                ", Surname='" + surname + '\'' +
-                ", Address='" + address + '\'' +
-                ", PhoneNumber='" + phoneNumber + '\'' +
-                ", Email='" + email + '\'' +
-                ", RegistrationDate=" + registrationDate +
-                '}';
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public String getJobRole() {
+        return jobRole;
+    }
+
+    public void setJobRole(String jobRole) {
+        this.jobRole = jobRole;
     }
 }
 

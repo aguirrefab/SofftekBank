@@ -1,6 +1,5 @@
 package models.users;
 import models.accounts.Account;
-import models.banks.Subsidiary;
 
 import java.util.Date;
 import java.util.List;
@@ -18,44 +17,21 @@ import java.util.List;
  */
 
 public class Customer extends User {
+    private Integer branchId;
 
-    private Integer subsidiaryId;
-    private List<Account> accounts;
+    public Customer() {}
 
-    public Customer(String dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer subsidiaryId) {
+    public Customer(Integer dni, String name, String surname, String address, String phoneNumber, String email, Date registrationDate, Integer customerId, Integer branchId) {
         super(dni, name, surname, address, phoneNumber, email, registrationDate);
-        this.subsidiaryId = subsidiaryId;
+        this.branchId = branchId;
     }
 
-    public Customer(){}
-
-    public Integer getSubsidiaryId() {
-        return subsidiaryId;
+    public Integer getBranchId() {
+        return branchId;
     }
 
-    public void setSubsidiaryId(Integer subsidiaryId) {
-        this.subsidiaryId = subsidiaryId;
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "cuil='" + dni + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", registrationDate=" + registrationDate +
-                '}';
+    public void setBranchId(Integer branchId) {
+        this.branchId = branchId;
     }
 }
 

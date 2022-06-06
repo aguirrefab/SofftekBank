@@ -1,5 +1,7 @@
 package models.accounts;
 
+import models.users.Customer;
+
 /**
  * <h2>Checking Account</h2>
  * {@code Account} is a subclass<br>
@@ -14,8 +16,9 @@ package models.accounts;
 
 public class CheckingAccount extends Account {
 
-
-    public CheckingAccount(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, String customerDni) {
+    public CheckingAccount(Integer idAccount, Double balance, Long CBU, String tipeOfCurrency, String tipeOfAccount, Customer customerDni) {
         super(idAccount, balance, CBU, tipeOfCurrency, tipeOfAccount, customerDni);
     }
+
+    public CheckingAccount(){};
 }

@@ -2,23 +2,25 @@ package models.banks;
 
 import models.users.Customer;
 
-public class Subsidiary {
-    private Integer entityId;
+public class Branch {
+    private Long entityId;
     private String city;
     private String address;
     private Customer customer;
 
-    public Subsidiary(Integer entityId, String city, String address) {
+    public Branch(Long entityId, String city, String address) {
         this.entityId = entityId;
         this.city = city;
         this.address = address;
     }
 
-    public Integer getEntityId() {
+    public Branch(){}
+
+    public Long getEntityId() {
         return entityId;
     }
 
-    public void setEntityId(Integer entityId) {
+    public void setEntityId(Long entityId) {
         this.entityId = entityId;
     }
 

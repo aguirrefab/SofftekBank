@@ -1,8 +1,6 @@
 package models.banks;
 
-import dao.BankDAO;
 import models.accounts.Account;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,17 +17,16 @@ import java.util.List;
 
 public class Bank {
     private String entityName;
-    private Integer entityCode;
+    private Long entityCode;
     private String country;
     private List<Account> accounts;
 
 
 
-    public Bank(String entityName, Integer entityCode, String country) {
+    public Bank(String entityName, Long entityCode, String country) {
         this.entityName = entityName;
         this.entityCode = entityCode;
         this.country = country;
-        this.accounts = new ArrayList<>();
     }
 
     public Bank(){}
@@ -42,11 +39,11 @@ public class Bank {
         this.entityName = entityName;
     }
 
-    public Integer getEntityCode() {
+    public Long getEntityCode() {
         return entityCode;
     }
 
-    public void setEntityCode(Integer entityCode) {
+    public void setEntityCode(Long entityCode) {
         this.entityCode = entityCode;
     }
 
@@ -57,13 +54,4 @@ public class Bank {
     public void setCountry(String country) {
         this.country = country;
     }
-
-    public List<Account> getAccounts(){
-        return accounts;
-    }
-
-    public void setAccounts(List<Account> accounts){
-        this.accounts = accounts;
-    }
-
 }
