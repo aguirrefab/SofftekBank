@@ -1,5 +1,6 @@
 package services;
 
+import dao.BranchDAO;
 import dao.IBranchDAO;
 import models.banks.Branch;
 
@@ -7,8 +8,8 @@ public class BranchService implements IBranchService{
 
     private IBranchDAO branchDAO;
 
-    public BranchService(IBranchDAO branchDAO) {
-        this.branchDAO = branchDAO;
+    public BranchService(){
+        this.branchDAO = new BranchDAO();
     }
 
     @Override

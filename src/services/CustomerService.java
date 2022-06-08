@@ -10,8 +10,8 @@ public class CustomerService implements ICustomerService {
 
     private ICustomerDAO customerDAO;
 
-    public CustomerService(ICustomerDAO customerDAO) {
-        this.customerDAO = customerDAO;
+    public CustomerService() {
+        this.customerDAO = new CustomerDAO();
     }
 
     @Override

@@ -7,8 +7,8 @@ public class EmployeeService implements IEmployeeService {
 
     private EmployeeDAO employeeDAO;
 
-    public EmployeeService(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeService() {
+        this.employeeDAO = new EmployeeDAO();
     }
 
     @Override
