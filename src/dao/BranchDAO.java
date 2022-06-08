@@ -10,7 +10,7 @@ public class BranchDAO implements IBranchDAO {
 
     private static BranchDAO instance;
 
-    private BranchDAO() {}
+    public BranchDAO() {}
 
     // Apply Singleton Pattern
     public static BranchDAO getInstance() {
